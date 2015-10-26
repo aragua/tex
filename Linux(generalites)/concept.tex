@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%    Concept    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Concepts}
+
+\begin{frame}{Concepts}{Basé sur UNIX}
+	Implémentation libre d'UNIX diffusé sous licence GPL\\
+	Inspiré des deux versions: AT\&T et BSD\\
+	Les principes d'UNIX sont respectés:
+	\begin{itemize}
+		\item
+			Simplicité, modularité, respect des standards, ouverture
+		\item
+			Deux espaces de mémoire: noyau / utilisateur
+		\item
+			Le noyau permet d'accéder au matériel (pilotes, appels système)
+		\item
+			Tout composant est un fichier: répertoire, périphérique, élément de communication, etc. (organisation arborescente)
+		\item
+			Puissance de la «ligne de commande» (shell et regexpr)			
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Concepts}{Fonctionnalitées}
+	\begin{itemize}
+		\item
+			Noyau monolithique (en un seul fichier) + modules dynamiques
+		\item
+			Création des processus via fork() et exec()
+		\item
+			Multi-threading
+		\item
+			Nombreuses piles réseau (IPv4, IPv6, Ethernet, etc.)
+		\item
+			Organisation des fichiers arborescente à partir de la racine (/), montage et démontage logique (mount)
+		\item
+			Notion de super-utilisateur (root), groupes, et utilisateurs
+	\end{itemize}
+\end{frame}

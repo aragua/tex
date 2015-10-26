@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%    GOOD PRACTICES    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Bonnes pratiques}
+
+\subsection{Eviter les bugs}
+\begin{frame}{Éviter les bugs}
+	\begin{itemize}
+	 	\item
+			Réfléchir avant d'agir
+		\item
+			Bien se documenter sur les fonctions, APIs utilisées
+		\item
+			Écrire du code simple, clair et modulaire
+	 	\item
+			Procéder étape par étape (ne pas tout coder d'un coup)			
+	 	\item
+			Vérifier les paramètres d'entrées dès que nécessaire
+	 	\item
+			Bien vérifier alloc, free, lock, unlock, ...
+	 	\item
+			Respecter les guidelines (Linux)
+	\end{itemize}
+\end{frame}
+
+\subsection{Faciliter l'analyse}
+\begin{frame}{Faciliter l'analyse}
+	\begin{itemize}
+	 	\item
+			Utilisation de printf, zlog, syslog, printk, ftrace ...
+		\item
+			Utilisation de /proc ou d'un outil de stats en userland
+		\item
+			Wrapper des fonctions systèmes sensibles alloc, mutex, ... (facilite l'ajout de trace)
+		\item
+			Utiliser les mécanismes existants (stack-protector, timeout lock, RCU debug, ...)
+	\end{itemize}
+\end{frame}

@@ -1,0 +1,90 @@
+% Copyright 2015 by Fabien Lahoudere <fabienlahoudere.pro@gmail.com>.
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{listingsutf8}
+
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{light-blue}{RGB}{20,20,80}
+\lstdefinestyle{customc}{language=C,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	showstringspaces=false,
+	numbersep=5pt,
+	tabsize=8,
+	backgroundcolor=\color{light-gray},
+	frame=shadowbox,
+	rulesepcolor=\color{blue!40!white},
+	basicstyle=\ttfamily\tiny,
+	numberstyle=\tiny,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{blue},
+    stringstyle=\selectfont\color{orange}}
+
+\lstdefinestyle{customshell}{language=bash,
+	belowcaptionskip=1\baselineskip,
+	basicstyle=\ttfamily\tiny}
+
+
+\title[Debug Linux embarqué]
+{Panorama des outils de debug pour Linux embarqué}
+
+\author[Fabien Lahoudère]
+{Fabien Lahoudère}
+
+\institute[Open Wide]
+{
+  Développeur Linux embarqué chez Open Wide\\
+  fabienlahoudere.pro@gmail.com\\
+  aragua sur github et IRC
+}
+
+\date[Mai 2015]
+{Toulouse Embedded Linux and Android Meetup, Mai 2015}
+
+\subject{Debug Linux embarqué}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Plan}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%    DOCUMENT    %%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Plan}
+  \tableofcontents
+\end{frame}
+
+\input{bugs.tex}
+
+\input{tools.tex}
+
+\input{goodpractices.tex}
+
+\input{resume.tex}
+
+%\input{appendix.tex}
+
+\end{document}

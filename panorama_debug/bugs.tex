@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%    BUGS    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Bugs et erreurs}
+
+\subsection{Définition}
+
+\begin{frame}{Définition}{Qu'est ce qu'un bug?}
+	\begin{itemize}
+		\item
+			Un défaut de conception d'un programme informatique à l'origine d'un dysfonctionnement.
+		\item
+			Gravité : défauts d’affichage mineurs -> crash système critique (explosion du vol 501 d'Ariane 5).
+		\item
+			Un bug peut résider dans n'importe quel logiciel contenant du code (application, librairie, firmware, ...)
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Définition}{Classification des cas courants}
+	Exemple de classification des cas courants de bugs:
+	\begin{itemize}
+		\item
+			Erreur de segmentation
+		\item
+			Dépassement d'entier
+		\item
+			Dépassement de tampon
+		\item
+			Dépassement de pile
+		\item
+			Fuite mémoire
+		\item
+			Situation de compétition
+		\item
+			Interblocage
+		\pause
+		\item
+			Performance dégradée
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Définition}{Les erreurs}
+	\begin{itemize}
+		\item
+			Une erreur retournée par un programme n'est pas un bug.
+		\item
+			C'est une fonctionnalité permettant de notifier l'utilisateur d'un comportement anormal d'un logiciel. 
+		\item
+			Elle peut résulter d'un mauvais paramètre d'entrée ou d'un bug logiciel.
+		\item
+			Plusieurs types d'erreurs rencontrés par le développeur:
+			\begin{itemize}
+				\item
+					Erreur de compilation
+				\item
+					Erreur système
+				\item
+					Erreur de l'application (gestion des bugs)
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Exemple}
+
+%%%%%%  segfault  %%%%%%
+\defverbatim[colored]\mycode{%
+\begin{lstlisting}[style=customc]
+int main (int argc, char ** argv)
+{
+	char ptr[10];
+	memcpy(ptr, argv[1], strlen(argv[1])+1);
+	printf("%s\n", ptr);
+	return 0;
+}
+\end{lstlisting}}
+
+\defverbatim[colored]\myshell{%
+\begin{lstlisting}[style=customshell]
+$ ./segfault toto
+toto
+$ ./segfault
+Erreur de segmentation (core dumped)
+$
+\end{lstlisting}}
+
+\begin{frame}[fragile]{Erreur de segmentation}
+Tentative d'accès à un segment de mémoire inexistant ou non autorisé.
+\mycode
+\myshell
+\end{frame}
+
+
+%%%%%%  Dépassement d'entier  %%%%%%
+\defverbatim[colored]\mycode{%
+\begin{lstlisting}[style=customc]
+int main (int argc, char ** argv)
+{
+	short s;
+	for(s=0; s < atoi(argv[1]); s++) {
+	}
+	printf("Succeed to count until %d\n", s);
+	return 0;
+}
+\end{lstlisting}}
+\defverbatim[colored]\myshell{%
+\begin{lstlisting}[style=customshell]
+$ ./intoverflow 32767
+Succeed to count until 32767
+$ ./intoverflow 32768
+^C (infinite loop)
+$
+\end{lstlisting}}
+\begin{frame}{Dépassement d'entier}
+Un dépassement d'entier (integer overflow) est une condition qui se produit lorsqu'une opération mathématique produit une valeur numérique supérieure à celle représentable dans l'espace de stockage disponible.
+\mycode
+\myshell
+\end{frame}
+
+
+%%%%%%  Dépassement de tampon  %%%%%%
+\defverbatim[colored]\mycode{%
+\begin{lstlisting}[style=customc]
+int main (int argc, char ** argv)
+{
+	char *buf2 = malloc(16), *buf1 = malloc(16);
+	memcpy(buf1, argv[1], strlen(argv[1])+1);
+	memcpy(buf2, argv[2], strlen(argv[2])+1);
+	printf("%s\n", buf1);
+	return 0;
+}
+\end{lstlisting}}
+\defverbatim[colored]\myshell{%
+\begin{lstlisting}[style=customshell]
+$ ./bufoverflow hello abcdefghijklmnopqrstuvwxyz
+hello
+$ ./bufoverflow hello abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+ghijklmnopqrstuvwxyz
+$
+\end{lstlisting}}
+\begin{frame}{Dépassement de tampon}
+Un dépassement de tampon (buffer overflow) est un bug par lequel un processus, lors de l'écriture dans un tampon, écrit à l'extérieur de l'espace alloué au tampon, écrasant ainsi des informations nécessaires au processus.
+\mycode
+\myshell
+\end{frame}
+
+
+%%%%%%  Dépassement de pile  %%%%%%
+\defverbatim[colored]\mycode{%
+\begin{lstlisting}[style=customc]
+int main (int argc, char ** argv)
+{
+	int idx=0; char buf[16];
+	for(idx=0; idx <= strlen(argv[1]); idx++) {
+		buf[idx]=argv[1][idx];
+	}
+	printf("read %d/%lu bytes\n%s\n", idx, strlen(argv[1])+1, buf);
+	return 0;
+}
+\end{lstlisting}}
+\defverbatim[colored]\myshell{%
+\begin{lstlisting}[style=customshell]
+$ ./stackoverflow 0123456789abcdefghijklmnopq
+Read 28/28 bytes : 0123456789abcdefghijklmnopq
+$ ./stackoverflow 0123456789abcdefghijklmnopqr
+^C (infinite loop)
+$ ./stackoverflow 0123456789abcdefghijklmnopqrs
+Read 116/30 bytes : 0123456789abcdefghijklmnopqrt
+$
+\end{lstlisting}}
+\begin{frame}{Dépassement de pile}
+Un dépassement de pile (stack overflow) est un bug causé par un processus qui, lors de l'écriture dans une pile, va écraser les données précédemment pousser sur la stack.
+\mycode
+\myshell
+\end{frame}
+
+
+%%%%%%  Fuite mémoire  %%%%%%
+\defverbatim[colored]\mycode{%
+\begin{lstlisting}[style=customc]
+int main (int argc, char ** argv)
+{
+	int size = atoi(argv[1]);
+	while (1) {
+		char * ptr = malloc(size);
+		if (!ptr) // quit
+			break;
+		else // fill the buffer
+			for(idx=0; idx < size ; idx++)
+				ptr[idx]=idx;
+	}
+	return 0;
+}
+\end{lstlisting}}
+\defverbatim[colored]\myshell{%
+\begin{lstlisting}[style=customshell]
+$ ./leak 12000000 &
+$ watch cat /proc/meminfo 
+...
+MemFree:	xxxxxx kB # decrease until the system exit or start to swap
+...
+$
+\end{lstlisting}}
+\begin{frame}{Fuite mémoire}
+Une fuite de mémoire est une occupation croissante et non contrôlée ou non désirée de la mémoire d'un ordinateur.
+\mycode
+\myshell
+\end{frame}
+
+%%%%%%  Situation de compétition  %%%%%%
+\begin{frame}{Situation de compétition}
+	\begin{itemize}
+		\item
+			Lorsque l'ordre d'utilisation d'une ressource partagée joue sur le résultat
+		\item
+			Par ex:
+			\begin{itemize}
+				\item
+					Une variable est lue par un acteur avant d'être pourvue par un autre.
+				\item
+					Une fonction d'un système est exécuté avant que le système soit initialisé
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%%%%  Interblocage  %%%%%%
+\begin{frame}{Interblocage}
+	\begin{itemize}
+		\item
+			Lorsque un acteur détient un verrou et attend un signal d'un autre acteur attendant ce même verrou
+		\item
+			Plusieurs causes:
+			\begin{itemize}
+			\item
+				Oubli de libérer le verrou
+			\item
+				Situation de compétition impliquant un verrou
+			\item
+				Mauvaise gestion des priorités entre threads
+		\end{itemize}
+	\end{itemize}
+\end{frame}

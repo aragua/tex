@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+%% ModernCV themes
+%\moderncvstyle{casual}
+\moderncvstyle{classic}
+\moderncvcolor{red}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+%% Character encoding
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.75]{geometry}
+
+\usepackage{url}
+
+%% Personal data
+\firstname{Fabien}
+\familyname{Lahoudere}
+\title{Développeur Linux embarqué}
+\email{fabienlahoudere.pro@gmail.com}
+\address{26 rue de Cruchen}{31490 Léguevin}
+\mobile{+336.60.17.09.53}
+%\phone{}
+%\fax{}
+%\homepage{aragua.ddns.net}
+%\extrainfo{additional information}
+%\photo[64pt][0.4pt]{toto}
+%\quote{Some quote (optional)}
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+
+\section{Expérience formateur Linux embarqué}
+\cventry{Nov. 2014}{Formateur Linux}{INSA}{Toulouse}{}{Initiation à Linux embarqué, OpenEmbedded}
+\cventry{Mai 2014}{Formateur Linux}{Twiga}{Toulouse}{}{Introduction à Linux embarqué, Yocto, compilation croisée dans QT\\
+Mise en pratique par le développement d'une distribution contenant une application de capture/affichage vidéo}
+\cventry{Nov. 2013}{Formateur Linux}{INSA}{Toulouse}{}{Initiation à Linux embarqué, OpenEmbedded}
+
+\section{Expérience développeur Linux}
+\cventry{Juin 2014\\Aujourd'hui}{Développeur Linux}{Actia (Open Wide)}{Toulouse}{}{Spécification et développement en C d'une communication inter micro basée sur SPI\\
+Développement d'un netdevice CAN/SPI et adaptation API socket CAN\\
+Mise en place et support du build system (Yocto)}
+
+\cventry{Fév. 2014\\Mai 2014}{Développeur Linux et réseau}{Arkoon \& Open Wide}{Toulouse}{}{Intégration de netmap dans HAKA security\\
+\url{https://github.com/haka-security/haka}}
+
+\cventry{Janv. 2014\\Fév. 2014}{Intégrateur Yocto}{Nexter systems (Open Wide)}{Toulouse}{}{Création d'une distribution embarquée avec QT sur x86\\
+Intégration de l'application client}
+
+\cventry{Oct. 2014\\Janv. 2014}{Développeur Linux embarqué}{ECA Sinters (Open Wide)}{Toulouse}{}{Mise en place du BSP et du build system sur carte d'évaluation\\
+Développement en C d'une communication inter micro sur ethernet\\
+Développement d'un driver de communication FPGA<->Cortexm3\\
+Démarrage de la carte finale et debug des drivers}
+
+\cventry{Fév. 2013\\Sept. 2013}{Développeur Linux embarqué}{ESII (Open Wide)}{Toulouse}{}{Développement en C d'un streamer audio sur wifi\\
+Intégration sur carte à base imx53 (OpenEmbedded)\\
+Développement d'une application cliente sur Android (NDK)}
+
+\cventry{Juin 2012\\Janv. 2013}{Développeur et intégrateur Linux}{M3 Systems (Open Wide)}{Toulouse}{}{Développement en C d'un outil de collecte régulière de données GNSS\\
+Intégration sur PC (debootstrap puis buildroot) et portage sur système embarqué }
+
+\cventry{Janv. 2012\\Mai 2012}{Développeur Linux}{Zodiac aerospace (Open Wide)}{Toulouse}{}{Etude et développement d'un système de VOD prépayé pour IFE\\
+Développement en C, d'un plugin de déchiffrement pour vlc, mise en place d'une PKI et d'un outil de chiffrement et développement d'une solution de prépaiement}
+
+\cventry{Juil. 2010\\Déc. 2011}{Développeur Linux embarqué}{Sagemcom (Open Wide)}{Rueil-Malmaison}{}{Développement de drivers d'interface avec les composants de sécurité d'une ``set top box'' (PVR, descrambling, access control, chiffrement NAND)\\
+Développement d'un outil de SAV passant des commandes chiffrées à la STB après authentification mutuelle (SSL)\\
+Intégration de drivers pour la compatibilité avec de nouvelles NAND gérant l'ECC en interne\\
+Récupération de box sécurisées sans JTAG flashées avec des briques corrompues}
+
+\cventry{Nov. 2009\\ Juin 2010}{Consultant sécurité}{Amesys RSS (Key Consulting)}{Boulogne-Billancourt}{}{Sécurisation d'une application (C/perl) sous RedHat contre le reverse engineering}
+
+\cventry{Oct. 2008\\Oct. 2009}{Développeur Linux}{Intego}{Paris}{}{Création et test de la partie bas niveau d’un antivirus en C sous Linux\\
+Portage et test de la librairie antivirale\\
+Spécification et implémentation d’un scanner de fichier\\
+Interception en temps réel des accès au système de fichiers (module noyaux)}
+
+\cventry{Avril 2008\\Sept. 2008}{Stagiaire}{Thomson R\&D}{Rennes}{}{Etat de l’art des techniques de protection contre le désassemblage\\
+Etude de leurs contre-mesures basées sur des heuristiques\\
+Réflexion sur de nouvelles techniques\\
+Création d’un outil en C++ pour automatiser l’application de ces méthodes}
+
+\section{Formation}
+\cventry{2008}{Master}{Université Bordeaux1}{Talence}{}{Cryptologie et sécurité informatique}
+\cventry{2006}{Licence}{Université Bordeaux1}{Talence}{}{Mathématiques et informatique} 
+\cventry{2003}{Baccalauréat}{Lycée Gustave Eiffel}{Bordeaux}{}{Scientifique sciences de l'ingénieur, spécialité Mathématiques}  
+
+\section{Langues}
+\cvitemwithcomment{Français}{Langue maternelle}{}
+\cvitemwithcomment{Anglais}{Opérationnel}{}
+\cvitemwithcomment{Espagnol}{Débutant}{}
+
+%\cvdoubleitem{category X}{XXX, YYY, ZZZ}{category Y}{XXX, YYY, ZZZ}
+%\cvlistitem{Item 1}
+%\cvlistdoubleitem{Item 2}{Item 3}
+%% ...
+
+%\bibliography{publications}
+\end{document}

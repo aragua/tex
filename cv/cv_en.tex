@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+%% ModernCV themes
+%\moderncvstyle{casual}
+\moderncvstyle{classic}
+\moderncvcolor{red}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+%% Character encoding
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.75]{geometry}
+
+\usepackage{url}
+
+%% Personal data
+\firstname{Fabien}
+\familyname{Lahoudere}
+\title{GNU/Linux software developer}
+\email{fabienlahoudere.pro@gmail.com}
+\address{26 rue de Cruchen}{31490 Léguevin}
+\mobile{+336.60.17.09.53}
+%\phone{}
+%\fax{}
+%\homepage{aragua.ddns.net}
+%\extrainfo{additional information}
+%\photo[64pt][0.4pt]{toto}
+%\quote{Some quote (optional)}
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
+\begin{document}
+\makecvtitle
+
+\section{Embedded Linux trainer}
+\cventry{Nov. 2014}{Linux trainer}{INSA}{Toulouse}{}{Introduction to embedded Linux, OpenEmbedded}
+\cventry{May 2014}{Linux trainer}{Twiga}{Toulouse}{}{Introduction to embedded Linux, Yocto, cross compiling in QT environnement\\
+Put into practice by developing a distribution for imx6 with a QT application to capture video and play recorded videos}
+\cventry{Nov. 2013}{Linux trainer}{INSA}{Toulouse}{}{Introduction to embedded Linux, OpenEmbedded}
+
+\section{GNU/Linux developer}
+\cventry{June 2014\\Now}{Linux kernel developer and yocto integrator}{Actia (Open Wide)}{Toulouse}{}{Specification and development of an SPI based mechanism to communicate between an imx6 and a powerpc\\
+Developpement of a CAN/SPI netdevice and socket CAN API modification for customer\\
+Build system establishment and support (Yocto)}
+
+\cventry{Feb. 2014\\May 2014}{Linux network developer}{Arkoon \& Open Wide}{Toulouse}{}{Netmap integration for HAKA security\\
+\url{https://github.com/haka-security/haka}}
+
+\cventry{Jan. 2014\\Feb. 2014}{Yocto integrator}{Nexter systems (Open Wide)}{Toulouse}{}{Establishment of an embedded distribution with Qt and graphics support for x86 platform\\
+Customer application integration}
+
+\cventry{Oct. 2014\\Jan. 2014}{Embedded Linux developer}{ECA Sinters (Open Wide)}{Toulouse}{}{BSP and build system establishment for evaluation board\\
+Development of an inter micro communication based on gigabit ethernet\\
+Development of driver to communicate between Cortexm3 on Linux and an FPGA\\
+Validation and optimization on the final board}
+
+\cventry{Feb. 2013\\Sept. 2013}{Embedded Linux developer}{ESII (Open Wide)}{Toulouse}{}{Development of an audio streamer over wifi\\
+Integration on an imx53 board (OpenEmbedded)\\
+Development of an android application using the NDK}
+
+\cventry{June 2012\\Jan. 2013}{Linux developer and integrator}{M3 Systems (Open Wide)}{Toulouse}{}{Development of GNSS data collector\\
+Integration on embedded x86 board (debootstrap then buildroot)\\
+Porting on embedded system }
+
+\cventry{Jan. 2012\\May 2012}{Linux developer}{Zodiac aerospace (Open Wide)}{Toulouse}{}{Specification and development of a prepaid VOD system for an IFE\\
+Development of a vlc decryption plugin, establishment of a key generation and diffusion system }
+
+\cventry{July. 2010\\Dec. 2011}{Embedded Linux developer}{Sagemcom (Open Wide)}{Rueil-Malmaison}{}{Development of drivers for hardware security component used in set top box (PVR, descrambling, access control, NAND encryption)\\
+Development of an SAV tool to manage set top box in factory\\
+kernel driver and application debug }
+
+\cventry{Nov. 2009\\ June 2010}{Security consultant}{Amesys RSS (Key Consulting)}{Boulogne-Billancourt}{}{Secure a C/perl application against reverse engineering}
+
+\cventry{Oct. 2008\\Oct. 2009}{Linux developer}{Intego}{Paris}{}{Specification and development of an antivirus (anti viral library, scanner, real time scanner)}
+
+\cventry{April 2008\\Sept. 2008}{Stagiaire}{Thomson R\&D}{Rennes}{}{State of the art of desassembly protection mechanisms\\
+Analyzis of counter measures based on heuristics\\
+Specification and development of new mechanisms }
+
+\section{Education}
+\cventry{2008}{Master}{University Bordeaux1}{Talence}{}{Cryptologie et computer security}
+\cventry{2006}{Licence}{University Bordeaux1}{Talence}{}{Mathematics et computer science} 
+\cventry{2003}{Baccalauréat}{College Gustave Eiffel}{Bordeaux}{}{Engineering science with option Math}  
+
+\section{Languages}
+\cvitemwithcomment{Français}{Native}{}
+\cvitemwithcomment{Anglais}{Operationnal}{}
+\cvitemwithcomment{Espagnol}{Beginer}{}
+
+%\cvdoubleitem{category X}{XXX, YYY, ZZZ}{category Y}{XXX, YYY, ZZZ}
+%\cvlistitem{Item 1}
+%\cvlistdoubleitem{Item 2}{Item 3}
+%% ...
+
+%\bibliography{publications}
+\end{document}
