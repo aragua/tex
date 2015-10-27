@@ -1,6 +1,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%    License    %%%%%%%%%%%%%%%%%%%%%%%
 \section{License}
 
-\begin{frame}{License}{}
-	Linux est sous licence GPLv2
+\subsection{GPL en bref}
+\begin{frame}{GPL en bref}{}
+	GPL General Public License \\
+	On la surnomme également copyleft \\
+	La GPL v2 (1991) est la plus répandue (ex: noyau Linux)\\
+	La licence s'applique uniquement en cas de redistribution\\
+	Un code source utilisant du code GPL est du travail dérivé et doit être publié\\
+	Publication: celui qui reçoit la version binaire peut obtenir le code source\\
+	Pas de lien (ld) possible entre du code GPL et du code propriétaire
+\end{frame}
+
+\subsection{LGPL}
+\begin{frame}{LGPL}{}
+	La GPL est complexe à gérer dans l'industrie \MVRightarrow{} création de la LGPL \\
+	Le lien avec du code propriétaire est possible avec la LGPL (Lesser/Library GPL) !\\
+	En majeure partie, les bibliothèques système sont diffusées sous LGPL (exemple: GNU-libc)\\
+	Dans le cas d'une application propriétaire il faut donc vérifier qu'aucune bibliothèque liée n'est GPL\\
+	Le lien dynamique n'affranchit pas de la licence sauf dans des cas très particuliers\\
+\end{frame}
+
+\subsection{GPL uniquement}
+\begin{frame}{GPL uniquement pour LINUX}{}
+	Dans l'espace noyau (pilotes), SEULE la GPL s'applique (en théorie) !\\
+	En théorie: On ne peut utiliser les headers du noyau Linux pour créer des binaires noon GPL\\
+	Certaines fonctions ne sont pas disponibles si la licence n'est pas GPL\\
+	En pratique: tolérance si le pilote n'a pas été créé pour Linux (cas du portage) => nVidia, Broadcom, ...\\
+	Cependant les pilotes binaires posent des soucis techniques vu qu'un pilote fonctionne pour la version de noyau utilisée pour la compilation\\
+\end{frame}
+
+\subsection{GPL V3}
+\begin{frame}{GPL V3}{}
+	Nouvelle version sortie en 2007\\
+	Oblige à fournir les éléments pour construire un logiciel fonctionnel => réponse à la Tivoisation\\
+	La GPL v2 demande uniquement la publication des sources à celui qui a reçu le binaire\\
+	La GPL v3 ne sera pas utilisée pour le noyau Linux.\\
+	Voir: http://www.gnu.org/licenses/quick-guide-gplv3.fr.html\\
 \end{frame}
