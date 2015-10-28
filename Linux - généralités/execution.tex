@@ -1,0 +1,53 @@
+\section{Execution d'un système GNU/Linux}
+
+\subsection{Démarrage}
+\begin{frame}{Execution}{Démarrage}
+	\begin{enumerate}
+		\item
+			Le matériel lance le bootloader
+		\item
+			Le bootloader configure la RAM et le support contenant le noyau 
+		\item
+			Le bootloader copie le noyau en RAM et lui donne la main
+		\item
+			Le noyau s'auto extrait en RAM
+		\item
+			Le noyau initialise les périphériques et les services (ordonnanceur, pile réseaux,syteme de fichier...)
+		\item
+			Le noyau récupère dans le rootfs le binaire d'initialisation (/sbin/init par défaut) et cré le processus 1
+		\item
+			Ce processus est chargé de démarrer tous les services en espaces utilisateurs.
+	\end{enumerate}
+\end{frame}
+
+\subsection{Le processus init}
+\begin{frame}{Execution}{Le processus init}
+	Le père des processus du système\\
+	Plusieurs systèmes possible:
+	\begin{itemize}
+		\item
+			system5: 
+			\begin{itemize}
+				\item
+					facile à configurer car basé sur des scripts shell
+				\item
+					architecture vieille et dépassé. Moins performant.
+			\end{itemize}
+		\item
+			systemd:
+		\begin{itemize}
+			\item
+				Parallélise l'initialisation du système. Centralise de nombreux services (logs,
+			\item
+				Plus complexe à prendre en main et moins modulaire pour certain.
+		\end{itemize}
+		\item
+			custom:
+			\begin{itemize}
+				\item
+					Linux permet d'utiliser son propre binaire init.
+				\item
+					Il faut gérer soit même le système.
+			\end{itemize}	
+	\end{itemize}
+\end{frame}
