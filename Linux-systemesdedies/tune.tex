@@ -1,0 +1,37 @@
+\section{Mise au point}
+
+\subsection{BSP(uboot+linux)}
+\begin{frame}{BSP}{}
+	Une plateforme "neuve" nécéssite des ajustements pou fonctionner:
+	\begin{itemize}
+		\item
+			Adaptation de la toolchain
+		\item
+			Support des drivers dans le bootloader et le kernel
+		\item
+			Ajout des fonctionnalités dans le bootloader et le kernel (réseau, NAND, HDD, ...)
+	\end{itemize}
+	Fourni par le constructeur de la plateforme éléctronique.
+	Si on est le constructeur, il faut développer le support.
+	Outils à disposition (gdb, sonde JTAG, ftrace, oscilloscope, multimetre ...) 
+\end{frame}
+			
+\subsection{User space}
+\begin{frame}{User space}{}
+	Lorsque le BSP est OK, la mise au point en espace utilisateur peut commencer.\\
+	De nombreux outils permettent de mettre au point des applications:
+	\begin{itemize}
+		\item
+			printf: outil simple à mettre en oeuvre et connu de tout le monde
+		\item
+			syslog: utile pour vérifier le bon fonctionnement ou detecter des anomalies
+		\item
+			valgrind: vérifie la bonne utilisation de la mémoire
+		\item
+			strace/ltrace: affiche les appels systèmes et librairies
+		\item
+			gdb: debugguer GNU/LINUX\\
+			permet d'acceder à la memoire, controler l'execution, monitoré les threads ...\\
+			gdbserver pour les cibles embarqués pour déporter le debug
+	\end{itemize}
+\end{frame}

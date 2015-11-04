@@ -1,0 +1,103 @@
+\section{Construire son système embarqué}
+
+\subsection{Bootloader}
+\begin{frame}{Bootloader}{}
+	Premier logiciel lancé au démarrage de la machine.
+	Initialise le matériel (RAM, stockage, ...) nécésaire au boot.
+	Charge le noyau en RAM et lui donne la main.
+	Permet de donner des arguments au noyau.
+	Exemples:
+	\begin{itemize}
+		\item
+			U-boot (supporte de nombreux architectures, la référence)
+		\item
+			barebox (u-boot v2, meilleure archi, moins de fonctionnalités pour l'instant)
+		\item
+			grub (x86, serveur et desktop principalement)
+		\item
+			isolinux (alternative x86 à grub)
+	\end{itemize}
+	Un système embarqué nécéssitera une configuration et un support matériel dans le bootloader.
+\end{frame}
+
+\subsection{Kernel}
+\begin{frame}{Kernel}{}
+	Génération d'un noyau:
+	\begin{enumerate}
+		\item
+			Récupération du noyau (kernel.org)
+		\item
+			Développement du support des drivers manquants.
+		\item
+			Création du support de la carte (board config  3.10  device tree)
+		\item
+			Configuration le noyau (make menuconfig)
+		\item
+			Compilation du noyau (make uImage)
+		\item
+			Installation sur la cible
+	\end{enumerate}
+	Binaire utilisable dans arch/arm/boot/zImage ou bien arch/arm/boot/uImage (pour U-Boot)\\
+	Binaire vmlinux utile pour le debug\\
+	Utilisation des variables ARCH et CROSS\_COMPILE.
+\end{frame}
+
+\subsection{Rootfs}
+\begin{frame}{Binaire de base}{}
+	Binaire de base indispensable au système (ls, bash, dd, top, cp, mv, init,...)
+	Trois possibilités:
+	\begin{itemize}
+		\item
+			Récupérer les sources et les compiler un par un. (laborieux)
+		\item
+			GNU/Linux coreutils (trop lourd pour l'embarqué)
+		\item
+			Busybox (regroupe la majorité des commandes Linux en un seul executable)
+			95\% des distributions Linux embarqués l'utilise\\
+			Simple, léger, portable\\
+			Diffusé sous licence GPLv2
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Busybox}{}
+	Utilisation des variables ARCH et CROSS\_COMPILE. (comme le noyau)\\
+	Génération de busybox:
+	\begin{enumerate}
+		\item
+			Récupération des sources
+		\item
+			Configuration (make menuconfig)
+		\item
+			Compilation (make uImage)
+		\item
+			Installation sur la cible (make CONFIG\_PREFIX=... install)
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Rootfs}{Peuplement}
+	Peuplement d'un rootfs:
+	\begin{enumerate}
+		\item
+			Installation de la libc et des autres librairies fournies par la toolchain\\
+		\item
+			Installation des binaires de busybox
+		\item
+			Création de la configuration de démarrage (/etc/init.d)
+		\item
+			Ajout des nodes dans /dev (si pas de mécanisme automatique)
+		\item
+			Ajout des librairies et applications du projet.
+	\end{enumerate}
+	Deux mèthodes:
+	\begin{itemize}
+		\item
+			A la main, copier ou installer chaque fichier/logiciel manuellement. (LFS)\\
+			Inenvisageable à moyen et long terme
+		\item
+			Automatiser soit en scriptant soit en utilisant un système existant (OE, yocto, buildroot, uclinux ...)\\
+			Plus rapide et plus sure.\\
+			Indispensable en production pour maitriser son livrable.
+	\end{itemize}
+\end{frame}
+
+

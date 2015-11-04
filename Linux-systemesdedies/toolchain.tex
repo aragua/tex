@@ -1,0 +1,79 @@
+\section{Toolchain}
+
+\begin{frame}{Toolchain}{}
+	Un point très complexe !\\
+	Nécessité de construire une chaîne croisée :\\
+	\begin{itemize}
+		\item
+			Gcc
+		\item
+			Binutils (as, ld, ...)
+		\item
+			Dépendances avec le noyau (system calls, ...) => erreur "Kernel too old"
+		\item
+			Choix d'une libC => Glibc, uClibc, Eglibc, ...
+		\item
+			GDB
+		\item
+			Toute autre bibliothèque utilisée => libstdc++
+		\item
+			Dépendances avec le compilateur hôte
+	\end{itemize}		
+\end{frame}
+
+\begin{frame}{Toolchain}{}
+	Interaction entre la libC et le noyau Linux
+	\begin{itemize}
+		\item
+			Appels systèmes (nombre, définition)
+		\item
+			Constantes 
+		\item
+			Structures de données, etc.
+	\end{itemize}
+	Compiler la libC – et certaines applications - nécessite les en-tête du noyau\\
+	Disponibles dans <linux/...> et <asm/...> et d'autres répertoires des sources du noyau (include, ...)\\
+\end{frame}
+
+\subsection{Compilateur binaire}
+\begin{frame}{Toolchain}{compilateur binaire}
+	Utiliser un compilateur binaire :
+	\begin{itemize}
+		\item
+			ELDK: http://www.denx.de/wiki/DULG/ELDK
+		\item
+			Code Sourcery : https://sourcery.mentor.com/sgpp/lite/arm/portal/release1803
+		\item
+			Installation simple
+		\item
+			Support (payant) possible
+		\item
+			Configuration connue => support par les forums
+	\end{itemize}
+	Par contre:
+	\begin{itemize}
+		\item
+			Versions des composants figées
+		\item
+			Non utilisation des possibilitées du CPU
+		\item
+			Choix libC limité
+	\end{itemize}
+\end{frame}
+
+\subsection{Compilateur source}
+\begin{frame}{Toolchain}{Compilé son compilateur}
+	Construire un compilateur:
+	\begin{itemize}
+		\item
+			Crosstool => obsolète
+		\item
+			Crosstool-NG => assez complexe à prendre en main
+		\item
+			Buildroot / OpenEmbedded
+	\end{itemize}
+	Aucun n'est "plug and play"\\
+	La mise au point peut prendre des jours, voire plus !\\
+	Binaires produits : arm-linux-* (gcc, as, ld, ar, nm, ...)\\
+\end{frame}
+

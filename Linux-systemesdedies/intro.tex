@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%    Intro    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\subsection{Systèmes dédiés?}
+\begin{frame}{Intro}{Systèmes dédiés?}
+	Un système dédié est un système concu pour ne réaliser qu'un certains nombre de tache défini.\\
+	Exemple:
+	\begin{itemize}
+		\item
+			Serveur web
+		\item
+			Calculateur automobile
+		\item
+			Box multimedia
+	\end{itemize}
+	On associe un système à une fonction (ou un groupe de fonction).\\
+	On cherche à maitriser le fonctionnement du système.\\
+	Différe des systèmes génériques censés savoir tout faire sur n'importe quelle plateforme.\\
+\end{frame}
+
+\begin{frame}{Intro}{Systèmes dédiés GNU/Linux?}
+	Utilisé depuis longtemps comme serveur.\\
+	Pourquoi ne pas l'utiliser pour d'autre système générique? (systèmes embarqués)\\
+	De nombreuses architectures supportées par Linux (ARM, mips, powerpc ...)\\
+	Systèmes fiables et performants\\
+	De nombreuses fonctionnalités déjà codé et validé\\
+	Nécessite un BSP (Board support package) et un peu d'adaptation.\\
+\end{frame}
+
+\subsection{Eléments nécéssaires}
+\begin{frame}{Intro}{Eléments nécéssaires}
+	Une système GNU/Linux dédié nécéssite:
+	\begin{itemize}
+		\item
+			Chaîne de compilation croisée (Gcc,as,ld,LibC)
+		\item
+			Un Bootloader (U-Boot, barebox, grub, isolinux)
+		\item
+			Noyau Linux adapté à l'archi hardware
+		\item
+			Outils GNU/LINUX Commandes Linux (sh, ls, cp, etc.)\\
+			Applications ...
+		\item
+			Outil de génération (BR, OE, ...)
+	\end{itemize}
+\end{frame}
