@@ -1,0 +1,76 @@
+% Copyright 2015 by Fabien Lahoudere <fabienlahoudere.pro@gmail.com>.
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{listingsutf8}
+\usepackage{marvosym} % \MVRIGHTarrow
+
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{light-blue}{RGB}{20,20,80}
+\lstdefinestyle{customc}{language=C,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	showstringspaces=false,
+	numbersep=5pt,
+	tabsize=8,
+	backgroundcolor=\color{light-gray},
+	frame=shadowbox,
+	rulesepcolor=\color{blue!40!white},
+	basicstyle=\ttfamily\tiny,
+	numberstyle=\tiny,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{blue},
+    stringstyle=\selectfont\color{orange}}
+
+\lstdefinestyle{customshell}{language=bash,
+	belowcaptionskip=1\baselineskip,
+	basicstyle=\ttfamily\tiny}
+
+
+\title[Yocto/OpenEmbedded]
+{Yocto/OpenEmbedded}
+
+\input{../common/signature.tex}
+
+\date[Novembre 2015]
+{INSA Linux embarqué, Novembre 2015}
+
+\subject{Yocto/OpenEmbedded}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%    DOCUMENT    %%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Sommaire}
+  \tableofcontents
+\end{frame}
+
+\input{intro.tex}
+
+
+\end{document}
