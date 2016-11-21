@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%    Layers    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Layers}
+
+\subsection{Layer}
+\begin{frame}{Qu'est ce qu'un layer?}{}
+	Ensemble de fichier contenant des informations pour construire:
+	\begin{itemize}
+		\item
+			Logiciel
+		\item
+			Toolchain
+		\item
+			Rootfs
+		\item
+			...
+	\end{itemize}
+	En gros tout les composants d'une distribution Linux.\\
+	Dans Yocto, nommé meta-<nom> par convention.\\
+	Chacun peux créer son propre layer ou meta.\\
+\end{frame}
+
+\subsection{Recette}
+\begin{frame}{Recette}{}
+	Fichier .bb ou .bbappend\\
+	Il s'agit de la description de la construction d'une entité (toolchain, logiciel, image ...)\\
+	Toutes les variables ou fonctions décrites dan les recettes sont valable pour la construction de la recette.\\
+	bbappend permet d'etendre une recette. (D'un autre meta par exemple)\\
+\end{frame}
+
+\subsection{Classe}
+\begin{frame}{Classe}{}
+	Fichier .bbclass\\
+	Définit un comportement générique qu'une recette peut adopter (inherit)\\
+	Toutes les variables ou fonctions décrites dan les recettes sont valable pour la construction de la recette.\\
+\end{frame}
+
+\subsection{Config}
+\begin{frame}{Config}{}
+	Fichier .conf\\
+	Décrit des variables d'environnement globales au projet utilisable dans des recettes ou classes.\\
+	Permet de decrire:
+	\begin{itemize}
+		\item
+			la configuration local du poste de construction
+		\item
+			La liste des letas à utiliser
+		\item
+			Des machines: décris les caracteristiques du hardware
+		\item
+			Des distros: décris les lignes directrices de la distribution
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Inclusion}
+\begin{frame}{Inclusion}{}
+	Permet d'inclure à une recette des données communes par les mots-clé require ou include\\
+	On peut inclure des .inc, .conf, .bb\\
+	Exemples:
+	\begin{itemize}
+		\item
+			require linux.inc
+		\item
+			include \path{../common/firmware.inc}
+		\item
+			include \path{conf/distro/include/security_flags.conf}
+	\end{itemize}
+\end{frame}

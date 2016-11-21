@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%    Principles    %%%%%%%%%%%%%%%%%%%%%%%
+\section{Principe}
+
+\subsection{Poky}
+\begin{frame}{Poky}{}
+	Poky est la distribution de référence de Yocto.\\
+	Version actuelle : Krogoth 2.1.1\\
+	Elle contient bitbake, openembedded core et un ensemble de meta-données(layers).\\
+	Basé son projet sur Yocto consiste à télécharger poky.\\
+	\url{http://downloads.yoctoproject.org/releases/yocto/yocto-2.1.1/poky-krogoth-15.0.1.tar.bz2}.\\
+\end{frame}
+
+\subsection{bitbake}
+\begin{frame}{Bitbake}{Le cuisinier}
+	Il s'agit d'un outil executant des regles de construction.\\
+	Equivalent à make en plus évolué.\\
+	Outil principal de Yocto.\\
+	Traite les informations contenant la description du système.\\
+	Génére les binaires du systémes embarqué.\\
+	Ecris en Python.\\
+\end{frame}
+
+\subsection{Layer}
+\begin{frame}{Layer}{}
+	Ensemble de fichier contenant des informations pour construire:
+	\begin{itemize}
+		\item
+			Logiciel
+		\item
+			Toolchain
+		\item
+			Rootfs
+		\item
+			...
+	\end{itemize}
+	
+\end{frame}
+

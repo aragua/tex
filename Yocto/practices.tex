@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%    bitbake    %%%%%%%%%%%%%%%%%%%%%%%
+\section{En pratique}
+
+\defverbatim[colored]\gitclone{%
+\begin{lstlisting}[style=customshell]
+$ git clone git://git.yoctoproject.org/poky
+\end{lstlisting}}
+
+\defverbatim[colored]\yoctoinit{%
+\begin{lstlisting}[style=customshell]
+$ cd poky
+$ source ./oe-init-build-env qemu_x86-build
+\end{lstlisting}}
+
+\defverbatim[colored]\yoctobuild{%
+\begin{lstlisting}[style=customshell]
+$ bitbake core-image-minimal
+\end{lstlisting}}
+
+\defverbatim[colored]\yoctotest{%
+\begin{lstlisting}[style=customshell]
+$ runqemu qemux86
+\end{lstlisting}}
+	
+\begin{frame}{Exemple}{}
+	Installation de Poky (Yocto reference distro)
+	\gitclone
+	Création du répertoire de travail
+	\yoctoinit
+	Définition (optionnelle) du type de machine dans conf/local.conf par la variable MACHINE\\
+	Tous ce que bitbake construit sera dans le dossier de build.\\
+	Construction d'une image simple.
+	\yoctobuild
+	Test de l'image
+	\yoctotest
+\end{frame}
+
+\begin{frame}{Produit}{}
+	Les images produites se retrouvent dans build/tmp/deploy/\\
+	On y retrouve:
+	\begin{itemize}
+		\item
+			les images dans images/ .ext3, .sdcard, .tar
+		\item
+			les paquets ipk, rpm, deb
+		\item
+			licences
+		\item
+			SDK
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Internal}{}
+	Chaque recette donne lieu a un ou plusieurs paquets.\\
+	Certains pour l'hote.\\
+	D'autres pour la target.\\
+	Sauf les images qui elles utilisent ces paquets pour peuplés sysroot et rootfs\\
+\end{frame}
